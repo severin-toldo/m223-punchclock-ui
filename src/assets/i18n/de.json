@@ -26,7 +26,9 @@
     "E1004": "User kann nicht gelöscht werden, da dieser noch in Zeit Einträgen verwendet wird.",
     "E1005": "Sitzung abgelaufen. Bitte melden Sie sich erneut an.",
     "E1006": "Eintrag nicht gefunden.",
-    "E1007": "E-Mail oder Passwort ungültig."
+    "E1007": "E-Mail oder Passwort ungültig.",
+    "E1008": "Ungülite E-Mail.",
+    "E1009": "Check-In kann nicht vor Check-Out sein."
   },
   "NAV": {
     "PROFILE": "Profil",
@@ -37,7 +39,7 @@
       "SUPERVISE": "Visieren"
     }
   },
-  "AUTH": {
+  "LOGIN": {
     "LOGIN": "Anmelden",
     "LOGOUT": "Abmelden",
     "EMAIL": "E-Mail",
@@ -48,6 +50,17 @@
       "RECORD": "Erfassen",
       "SUPERVISE": "Visierung",
       "MY_ENTIRES": "Meine Zeiteinträge"
+    },
+    "SUPERVISE": {
+
+    },
+    "TIME_ENTRY": {
+      "CREATE_TIME_ENTRY": {
+        "TITLE": "Zeiteintrag erfassen"
+      },
+      "EDIT_TIME_ENTRY": {
+        "TITLE": "Zeiteintrag bearbeiten"
+      }
     }
   },
   "MODEL": {
@@ -57,12 +70,9 @@
       "CATEGORY": "Kategorie",
       "USER": "Benutzer",
       "HOURS": "Stunden"
-    }
-  },
-  "COMPONENTS": {
-    "TIME_ENTRY_FORM": {
-      "EDIT_TITLE": "Zeiteintrag bearbeiten",
-      "CREATE_TITLE": "Zeiteintrag erfassen"
+    },
+    "CATEGORY": {
+      "NAME": "Name"
     }
   }
 }

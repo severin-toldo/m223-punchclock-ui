@@ -17,7 +17,7 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent,
-    data: {title: 'AUTH.LOGIN'},
+    data: {title: 'LOGIN.LOGIN'},
   },
   {
     path: 'dashboard',
@@ -35,13 +35,13 @@ const routes: Routes = [
     path: 'time-entry/create',
     component: CreateTimeEntryComponent,
     canActivate: [AuthGuard],
-    data: {title: 'TODO'},
+    data: {title: 'INTERCOM.TIME_ENTRY.CREATE_TIME_ENTRY.TITLE'},
   },
   {
     path: 'time-entry/edit/:id',
     component: EditTimeEntryComponent,
     canActivate: [AuthGuard],
-    data: {title: 'TODO'},
+    data: {title: 'INTERCOM.TIME_ENTRY.EDIT_TIME_ENTRY.TITLE'},
   }
 ];
 

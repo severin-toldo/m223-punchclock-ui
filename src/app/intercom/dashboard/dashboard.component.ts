@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { faEdit, faUsers } from '@fortawesome/free-solid-svg-icons';
+import { faClock, faUsers } from '@fortawesome/free-solid-svg-icons';
 import {AuthService} from "../../service/auth.service";
 import {TimeEntryService} from "../../service/time-entry.service";
 import {Observable, of} from "rxjs";
@@ -15,7 +15,7 @@ import {createTimeEntryRoute, superviseRoute} from "../../shared/routes";
 })
 export class DashboardComponent implements OnInit {
 
-  public readonly faEdit = faEdit;
+  public readonly faClock = faClock;
   public readonly faUsers = faUsers;
   public readonly createTimeEntryRoute = createTimeEntryRoute;
   public readonly superviseRoute = superviseRoute;

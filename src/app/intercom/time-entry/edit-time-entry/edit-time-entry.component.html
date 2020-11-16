@@ -1,2 +1,13 @@
-<app-time-entry-form *ngIf="(timeEntry$ | async) as timeEntry"
-                     [timeEntry]="timeEntry"></app-time-entry-form>
+<!-- async used on inputs is buggy -->
+<ng-container *ngIf="(timeEntryForm$ | async) as timeEntryForm">
+  <ng-container *ngIf="(timeEntry$ | async) as timeEntry">
+    <ng-container *ngIf="(categories$ | async) as categories">
+      <app-time-entry-form [form]="timeEntryForm"
+                           [timeEntry]="timeEntry"
+                           [categories]="categories"
+                           [title]="'INTERCOM.TIME_ENTRY.EDIT_TIME_ENTRY.TITLE'"
+                           [submitText]="'GENERAL.SAVE'"
+                           (onSubmit)="onSubmit($event)"></app-time-entry-form>
+    </ng-container>
+  </ng-container>
+</ng-container>
