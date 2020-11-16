@@ -15,7 +15,8 @@
     </div>
     <div class="col-9">
       <app-time-entries-table *ngIf="(myTimeEntries$ | async) as myTimeEntries"
-                              [timeEntries]="myTimeEntries"></app-time-entries-table>
+                              [timeEntries]="myTimeEntries"
+                              [title]="'INTERCOM.DASHBOARD.MY_ENTIRES'"></app-time-entries-table>
     </div>
   </div>
 </div>

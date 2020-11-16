@@ -31,8 +31,11 @@ import {TokenExpiredInterceptor} from "./service/interceptors/token-expired.inte
 import { CreateTimeEntryComponent } from './intercom/time-entry/create-time-entry/create-time-entry.component';
 import { EditTimeEntryComponent } from './intercom/time-entry/edit-time-entry/edit-time-entry.component';
 import { TimeEntryFormComponent } from './components/time-entry-form/time-entry-form.component';
-import {AbstractTimeEntryComponent} from "./intercom/time-entry/abstract-time-entry.component";
 import {TimeEntriesTableComponent} from "./components/time-entries-table/time-entries-table.component";
+import { CategoriesComponent } from './intercom/supervise/categories/categories.component';
+import { CreateCategoryComponent } from './intercom/supervise/categories/create-category/create-category.component';
+import { EditCategoryComponent } from './intercom/supervise/categories/edit-category/edit-category.component';
+import { CategoryFormComponent } from './components/category-form/category-form.component';
 
 
 export function httpLoaderFactory(http: HttpClient): TranslateHttpLoader {
@@ -51,7 +54,11 @@ export function httpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     SuperviseComponent,
     CreateTimeEntryComponent,
     EditTimeEntryComponent,
-    TimeEntryFormComponent
+    TimeEntryFormComponent,
+    CategoriesComponent,
+    CreateCategoryComponent,
+    EditCategoryComponent,
+    CategoryFormComponent
   ],
   imports: [
     HttpClientModule,

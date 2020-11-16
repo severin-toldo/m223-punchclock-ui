@@ -52,7 +52,13 @@
       "MY_ENTIRES": "Meine Zeiteinträge"
     },
     "SUPERVISE": {
-
+      "USERS": "Benutzer",
+      "CATEGORIES": {
+        "TITLE": "Kategorien",
+        "CREATE_CATEGORY": "Kategorie erfassen",
+        "EDIT_CATEGORY": "Kategorie bearbeiten"
+      },
+      "ALL_TIME_ENTRIES": "Alle Zeiteinträge"
     },
     "TIME_ENTRY": {
       "CREATE_TIME_ENTRY": {
@@ -72,6 +78,7 @@
       "HOURS": "Stunden"
     },
     "CATEGORY": {
+      "ID": "Id",
       "NAME": "Name"
     }
   }

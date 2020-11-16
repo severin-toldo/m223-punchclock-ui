@@ -1,4 +1,4 @@
-<h1>{{ 'INTERCOM.DASHBOARD.MY_ENTIRES' | translate }}</h1>
+<h1>{{ title | translate }}</h1>
 <div *ngIf="hasEntries" class="mat-elevation-z8">
   <table class="w-100" mat-table matSort [dataSource]="dataSource">
 
@@ -41,7 +41,7 @@
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
 
-  <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+  <mat-paginator [pageSizeOptions]="[20, 50, 100]" showFirstLastButtons></mat-paginator>
 </div>
 <div *ngIf="!hasEntries">
   {{ 'GENERAL.NO_DATA' | translate }}

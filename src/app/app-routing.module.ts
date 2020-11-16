@@ -7,7 +7,11 @@ import {AdminGuard} from "./service/guards/admin.guard";
 import {SuperviseComponent} from "./intercom/supervise/supervise.component";
 import {CreateTimeEntryComponent} from "./intercom/time-entry/create-time-entry/create-time-entry.component";
 import {EditTimeEntryComponent} from "./intercom/time-entry/edit-time-entry/edit-time-entry.component";
+import {CategoriesComponent} from "./intercom/supervise/categories/categories.component";
+import {CreateCategoryComponent} from "./intercom/supervise/categories/create-category/create-category.component";
+import {EditCategoryComponent} from "./intercom/supervise/categories/edit-category/edit-category.component";
 
+// TODO use children
 const routes: Routes = [
   {
     path: '',
@@ -26,12 +30,6 @@ const routes: Routes = [
     data: {title: 'NAV.NAV_LINKS.DASHBOARD'},
   },
   {
-    path: 'supervise',
-    component: SuperviseComponent,
-    canActivate: [AdminGuard],
-    data: {title: 'NAV.NAV_LINKS.SUPERVISE'},
-  },
-  {
     path: 'time-entry/create',
     component: CreateTimeEntryComponent,
     canActivate: [AuthGuard],
@@ -42,7 +40,31 @@ const routes: Routes = [
     component: EditTimeEntryComponent,
     canActivate: [AuthGuard],
     data: {title: 'INTERCOM.TIME_ENTRY.EDIT_TIME_ENTRY.TITLE'},
-  }
+  },
+  {
+    path: 'supervise',
+    component: SuperviseComponent,
+    canActivate: [AdminGuard],
+    data: {title: 'NAV.NAV_LINKS.SUPERVISE'},
+  },
+  {
+    path: 'supervise/categories',
+    component: CategoriesComponent,
+    canActivate: [AdminGuard],
+    data: {title: 'INTERCOM.SUPERVISE.CATEGORIES.TITLE'},
+  },
+  {
+    path: 'supervise/category/create',
+    component: CreateCategoryComponent,
+    canActivate: [AdminGuard],
+    data: {title: 'INTERCOM.SUPERVISE.CATEGORIES.CREATE_CATEGORY'},
+  },
+  {
+    path: 'supervise/category/edit/:id',
+    component: EditCategoryComponent,
+    canActivate: [AdminGuard],
+    data: {title: 'INTERCOM.SUPERVISE.CATEGORIES.EDIT_CATEGORY'},
+  },
 ];
 
 @NgModule({

@@ -20,11 +20,12 @@ export class TimeEntriesTableComponent implements OnInit, AfterViewInit {
 
   @Input() public timeEntries: TimeEntry[];
   @Input() public displayUserColumn = false;
+  @Input() public title: string;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  public displayedColumns: string[] = ['checkIn', 'checkOut', 'category', 'hours'];
+  public displayedColumns: string[];
   public dataSource: MatTableDataSource<TimeEntry>;
   public hasEntries = false;
 
@@ -39,14 +40,11 @@ export class TimeEntriesTableComponent implements OnInit, AfterViewInit {
   }
 
   public ngOnInit(): void {
+    this.displayedColumns = this.getDisplayedColumns();
     this.hasEntries = this.timeEntries && this.timeEntries.length > 0;
 
     if (this.hasEntries) {
       this.dataSource = new MatTableDataSource<TimeEntry>(this.timeEntries);
-    }
-
-    if (this.displayUserColumn) {
-      this.displayedColumns.push('user');
     }
   }
 
@@ -66,17 +64,24 @@ export class TimeEntriesTableComponent implements OnInit, AfterViewInit {
     this.timeEntryService.delete(id)
       .subscribe(() => {
         this.toaster.success();
+        this.timeEntries = this.timeEntries.filter(e => e.id !== id);
+        this.dataSource.data = this.timeEntries;
+        this.hasEntries = this.timeEntries && this.timeEntries.length > 0;
       }, error => {
         this.toaster.error(error.errorMessage);
       });
-
-    this.timeEntries = this.timeEntries.filter(e => e.id !== id);
-    this.dataSource.data = this.timeEntries;
-    this.hasEntries = this.timeEntries && this.timeEntries.length > 0;
   }
 
   public onEdit(id: number) {
     this.router.navigate(editTimeEntryRoute(id));
+  }
+
+  private getDisplayedColumns() {
+    if (this.displayUserColumn) {
+      return ['checkIn', 'checkOut', 'category', 'user', 'hours'];
+    }
+
+    return ['checkIn', 'checkOut', 'category', 'hours'];
   }
 }
 
