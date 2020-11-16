@@ -13,11 +13,28 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
-.my-fa-icon {
+.my-fa-icon-primary {
+  color: #0275d8;
+}
+
+.my-fa-icon-primary:hover {
+  cursor: pointer;
+  color: #055fad;
+}
+
+.my-fa-icon-primary:focus {
+  outline: 0;
+}
+
+.my-fa-icon-secondary {
   color: #f7f7f7;
 }
 
-.my-fa-icon:hover {
+.my-fa-icon-secondary:hover {
   cursor: pointer;
   color: #e8e6e6;
+}
+
+.my-fa-icon-secondary:focus {
+  outline: 0;
 }

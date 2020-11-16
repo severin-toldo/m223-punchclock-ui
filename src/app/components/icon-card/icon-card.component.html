@@ -1,0 +1,12 @@
+<mat-card class="icon-card mat-elevation-z8" [routerLink]="route">
+  <hspace [amount]="2"></hspace>
+  <div class="row">
+    <fa-icon class="col d-flex justify-content-center my-fa-icon-primary"
+             [size]="'5x'"
+             [icon]="icon"></fa-icon>
+  </div>
+  <hspace [amount]="2"></hspace>
+  <div class="row">
+    <h1 class="col d-flex justify-content-center">{{ cardText | translate }}</h1>
+  </div>
+</mat-card>

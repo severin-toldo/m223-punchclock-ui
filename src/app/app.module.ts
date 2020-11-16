@@ -25,6 +25,15 @@ import {MatTableModule} from '@angular/material/table';
 import {MatSortModule} from '@angular/material/sort';
 import {MatSelectModule} from '@angular/material/select';
 import {DatePipe} from '@angular/common';
+import {MatCardModule} from "@angular/material/card";
+import { IconCardComponent } from './components/icon-card/icon-card.component';
+import { TimeEntriesTableComponent } from './components/time-entries-table/time-entries-table.component';
+import { SuperviseComponent } from './intercom/supervise/supervise.component';
+import {MatPaginatorModule} from "@angular/material/paginator";
+import {TokenExpiredInterceptor} from "./service/interceptors/token-expired.interceptor";
+import { CreateTimeEntryComponent } from './intercom/time-entry/create-time-entry/create-time-entry.component';
+import { EditTimeEntryComponent } from './intercom/time-entry/edit-time-entry/edit-time-entry.component';
+import { TimeEntryFormComponent } from './components/time-entry-form/time-entry-form.component';
 
 
 export function httpLoaderFactory(http: HttpClient): TranslateHttpLoader {
@@ -40,6 +49,12 @@ export function httpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     SimpleFormComponent,
     HorizontalSpacingComponent,
     SimpleTableComponent,
+    IconCardComponent,
+    TimeEntriesTableComponent,
+    SuperviseComponent,
+    CreateTimeEntryComponent,
+    EditTimeEntryComponent,
+    TimeEntryFormComponent,
   ],
   imports: [
     HttpClientModule,
@@ -63,6 +78,8 @@ export function httpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     MatTableModule,
     MatSortModule,
     MatSelectModule,
+    MatCardModule,
+    MatPaginatorModule,
   ],
   providers: [
     {
@@ -73,6 +90,11 @@ export function httpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     {
       provide: HTTP_INTERCEPTORS,
       useClass: ErrorMessageInterceptor,
+      multi: true
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenExpiredInterceptor,
       multi: true
     },
     DatePipe

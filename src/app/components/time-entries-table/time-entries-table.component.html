@@ -1,0 +1,41 @@
+<h1>{{ 'INTERCOM.DASHBOARD.MY_ENTIRES' | translate }}</h1>
+<div *ngIf="hasEntries" class="mat-elevation-z8">
+  <table class="w-100" mat-table matSort [dataSource]="dataSource">
+
+    <ng-container matColumnDef="checkIn">
+      <th mat-header-cell mat-sort-header *matHeaderCellDef> {{ 'MODEL.TIME_ENTRY.CHECK_IN' | translate }} </th>
+      <td mat-cell *matCellDef="let element"> {{ element.checkIn | date:'d.M.yyyy / HH:mm' }} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="checkOut">
+      <th mat-header-cell mat-sort-header *matHeaderCellDef> {{ 'MODEL.TIME_ENTRY.CHECK_OUT' | translate }} </th>
+      <td mat-cell *matCellDef="let element"> {{ element.checkOut | date:'d.M.yyyy / HH:mm' }} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="category">
+      <th mat-header-cell mat-sort-header *matHeaderCellDef> {{ 'MODEL.TIME_ENTRY.CATEGORY' | translate }} </th>
+      <td mat-cell *matCellDef="let element"> {{ element.category ? element.category.name : '-' }} </td>
+    </ng-container>
+
+    <ng-container *ngIf="displayUserColumn" matColumnDef="user">
+      <th mat-header-cell mat-sort-header *matHeaderCellDef> {{ 'MODEL.TIME_ENTRY.USER' | translate }} </th>
+      <td mat-cell *matCellDef="let element"> {{ formatUser(element.user) }} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="hours">
+      <th mat-header-cell mat-sort-header *matHeaderCellDef> {{ 'MODEL.TIME_ENTRY.HOURS' | translate }} </th>
+      <td mat-cell *matCellDef="let element"> {{ differenceInHours(element.checkIn, element.checkOut) }} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+</div>
+<div *ngIf="!hasEntries">
+  {{ 'GENERAL.NO_DATA' | translate }}
+</div>
+
+
+

@@ -1,0 +1,24 @@
+<div class="m-5">
+  <div class="row">
+    <div class="col-3">
+      <h1>{{ 'INTERCOM.DASHBOARD.RECORD' | translate }}</h1>
+      <app-icon-card [icon]="faEdit"
+                     [route]="createTimeEntryRoute()"
+                     [cardText]="'INTERCOM.DASHBOARD.RECORD'"></app-icon-card>
+      <hspace [amount]="2"></hspace>
+      <ng-container *ngIf="isAdmin">
+        <h1>{{ 'INTERCOM.DASHBOARD.SUPERVISE' | translate }}</h1>
+        <app-icon-card [icon]="faUsers"
+                       [route]="superviseRoute()"
+                       [cardText]="'INTERCOM.DASHBOARD.SUPERVISE'"></app-icon-card>
+      </ng-container>
+    </div>
+    <div class="col-9">
+      <app-time-entries-table *ngIf="(myTimeEntries$ | async) as myTimeEntries"
+                              [timeEntries]="myTimeEntries"></app-time-entries-table>
+    </div>
+  </div>
+</div>
+
+
+

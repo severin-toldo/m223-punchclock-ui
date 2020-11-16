@@ -23,8 +23,7 @@ export class NavComponent implements OnInit {
   public readonly dashboardRoute = dashboardRoute;
 
   constructor(private authService: AuthService,
-              private navService: NavService,
-              private router: Router) {
+              private navService: NavService) {
   }
 
   public ngOnInit(): void {
@@ -38,6 +37,5 @@ export class NavComponent implements OnInit {
 
   public logout(): void {
     this.authService.logout();
-    this.router.navigate(loginRoute());
   }
 }

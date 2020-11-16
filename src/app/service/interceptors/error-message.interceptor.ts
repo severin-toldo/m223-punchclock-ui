@@ -15,15 +15,23 @@ export class ErrorMessageInterceptor implements HttpInterceptor {
   constructor(private injector: Injector) {
   }
 
-  // TODO
   public intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     return next.handle(request).pipe(catchError(error => {
       const translate = this.injector.get(TranslateService);
 
-      if (error.status) {
-        error.errorMessage = error.status + ' - ' + translate.instant('HTTP_STATUS_CODE.' + error.status);
-      } else {
-        error.errorMessage = translate.instant('GENERAL.UNKNOWN_ERROR');
+      if (error) {
+        const errorCode =  error.error && error.error.errorCode;
+        const httpStatusCode = error.error && error.error.httpStatusCode ? error.error.httpStatusCode :  error.status;
+
+        if (errorCode) {
+          error.errorMessage = 'ERROR_CODE.' + errorCode;
+        } else if (httpStatusCode) {
+          error.errorMessage = 'HTTP_STATUS_CODE.' + httpStatusCode;
+        } else {
+          error.errorMessage = 'ERROR_CODE.E1000';
+        }
+
+        error.errorMessage = translate.instant(error.errorMessage);
       }
 
       return throwError(error);
