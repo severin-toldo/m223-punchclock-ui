@@ -18,9 +18,7 @@ import {ToastrModule} from 'ngx-toastr';
 import {ErrorMessageInterceptor} from './service/interceptors/error-message.interceptor';
 import { NavComponent } from './layout/nav/nav.component';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
-import { SimpleFormComponent } from './components/simple-form/simple-form.component';
 import { HorizontalSpacingComponent } from './components/horizontal-spacing/horizontal-spacing.component';
-import { SimpleTableComponent } from './components/simple-table/simple-table.component';
 import {MatTableModule} from '@angular/material/table';
 import {MatSortModule} from '@angular/material/sort';
 import {MatSelectModule} from '@angular/material/select';
@@ -46,9 +44,7 @@ export function httpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     LoginComponent,
     DashboardComponent,
     NavComponent,
-    SimpleFormComponent,
     HorizontalSpacingComponent,
-    SimpleTableComponent,
     IconCardComponent,
     TimeEntriesTableComponent,
     SuperviseComponent,

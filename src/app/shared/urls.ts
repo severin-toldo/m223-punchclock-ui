@@ -10,6 +10,7 @@ export const deleteCategoryUrl = (id: number) => `${base}/categories/${id}`;
 export const getAllTimeEntriesUrl = () => `${base}/time-entries`;
 export const getMyTimeEntriesUrl = () => `${base}/time-entries/mine`;
 export const createTimeEntryUrl = () => `${base}/time-entries/`;
+export const getTimeEntryByIdUrl = (id: number) => `${base}/time-entries/${id}`;
 export const editTimeEntryUrl = (id: number) => `${base}/time-entries/${id}`;
 export const deleteTimeEntryUrl = (id: number) => `${base}/time-entries/${id}`;
 export const getAllUsersUrl = () => `${base}/users`;

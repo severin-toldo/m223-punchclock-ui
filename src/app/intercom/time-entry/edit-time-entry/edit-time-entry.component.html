@@ -1,1 +1,2 @@
-<p>edit-time-entry works!</p>
+<app-time-entry-form *ngIf="(timeEntry$ | async) as timeEntry"
+                     [timeEntry]="timeEntry"></app-time-entry-form>

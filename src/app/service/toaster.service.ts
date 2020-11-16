@@ -14,14 +14,14 @@ export class ToasterService {
               private  translate: TranslateService) {
   }
 
-  public error(message: string, title?: string): ActiveToast<any> {
+  public error(message?: string, title?: string): ActiveToast<any> {
     title = title ? title : 'GENERAL.ERROR';
     message = isBlankOrEmpty(message) ? 'GENERAL.ERROR' : message;
 
     return this.toastr.error(this.translate.instant(message), this.translate.instant(title), TOASTR_CONFIG);
   }
 
-  public success(message: string, title?: string): ActiveToast<any> {
+  public success(message?: string, title?: string): ActiveToast<any> {
     title = title ? title : 'GENERAL.SUCCESS';
     message = isBlankOrEmpty(message) ? 'GENERAL.SUCCESS' : message;
 

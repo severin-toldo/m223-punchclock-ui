@@ -38,7 +38,7 @@ const routes: Routes = [
     data: {title: 'TODO'},
   },
   {
-    path: 'time-entry/edit',
+    path: 'time-entry/edit/:id',
     component: EditTimeEntryComponent,
     canActivate: [AuthGuard],
     data: {title: 'TODO'},

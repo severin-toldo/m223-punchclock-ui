@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {TimeEntry} from "../../../model/time-entry.model";
 
 @Component({
   selector: 'app-create-time-entry',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreateTimeEntryComponent implements OnInit {
 
-  constructor() { }
+  public timeEntry = new TimeEntry();
 
-  ngOnInit(): void {
+  constructor() {
+  }
+
+  public ngOnInit(): void {
   }
 
 }

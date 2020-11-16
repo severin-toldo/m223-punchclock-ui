@@ -4,6 +4,12 @@ import {MatTableDataSource} from "@angular/material/table";
 import {MatSort} from "@angular/material/sort";
 import {MatPaginator} from "@angular/material/paginator";
 import {formatUser } from 'src/app/shared/util/other.util';
+import { faTimes, faEdit } from '@fortawesome/free-solid-svg-icons';
+import {TimeEntryService} from "../../service/time-entry.service";
+import {ToasterService} from "../../service/toaster.service";
+import {Router} from "@angular/router";
+import {editTimeEntryRoute} from "../../shared/routes";
+
 
 @Component({
   selector: 'app-time-entries-table',
@@ -23,9 +29,13 @@ export class TimeEntriesTableComponent implements OnInit, AfterViewInit {
   public hasEntries = false;
 
   public readonly formatUser = formatUser;
+  public readonly faTimes = faTimes;
+  public readonly faEdit = faEdit;
 
 
-  constructor() {
+  constructor(private timeEntryService: TimeEntryService,
+              private toaster: ToasterService,
+              private router: Router) {
   }
 
   public ngOnInit(): void {
@@ -48,9 +58,25 @@ export class TimeEntriesTableComponent implements OnInit, AfterViewInit {
   }
 
   public differenceInHours(date1: string, date2: string): number {
-    var diff = (new Date(date1).getTime() - new Date(date2).getTime()) / 1000;
-    diff /= (60 * 60);
-    return Math.abs(Math.round(diff));
+    const diff = (new Date(date1).getTime() - new Date(date2).getTime()) / 1000 / 60 / 60;
+    return Math.abs(Math.round(diff * 100) / 100);
+  }
+
+  public onDelete(id: number) {
+    this.timeEntryService.delete(id)
+      .subscribe(() => {
+        this.toaster.success();
+      }, error => {
+        this.toaster.error(error.errorMessage);
+      });
+
+    this.timeEntries = this.timeEntries.filter(e => e.id !== id);
+    this.dataSource.data = this.timeEntries;
+    this.hasEntries = this.timeEntries && this.timeEntries.length > 0;
+  }
+
+  public onEdit(id: number) {
+    this.router.navigate(editTimeEntryRoute(id));
   }
 }
 

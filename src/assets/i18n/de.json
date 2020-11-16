@@ -5,6 +5,7 @@
     "ERROR": "Fehler!",
     "SUCCESS": "Erfolgreich!",
     "ADD": "Hinzufügen",
+    "SAVE": "Speichern",
     "NO_DATA": "Keine Daten verfügbar."
   },
   "HTTP_STATUS_CODE": {
@@ -56,6 +57,12 @@
       "CATEGORY": "Kategorie",
       "USER": "Benutzer",
       "HOURS": "Stunden"
+    }
+  },
+  "COMPONENTS": {
+    "TIME_ENTRY_FORM": {
+      "EDIT_TITLE": "Zeiteintrag bearbeiten",
+      "CREATE_TITLE": "Zeiteintrag erfassen"
     }
   }
 }

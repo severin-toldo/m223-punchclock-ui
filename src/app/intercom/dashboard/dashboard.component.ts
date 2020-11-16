@@ -4,9 +4,8 @@ import {AuthService} from "../../service/auth.service";
 import {TimeEntryService} from "../../service/time-entry.service";
 import {Observable, of} from "rxjs";
 import {TimeEntry} from "../../model/time-entry.model";
-import {catchError, map} from "rxjs/operators";
+import {catchError} from "rxjs/operators";
 import {ToasterService} from "../../service/toaster.service";
-import {createTimeEntryUrl} from "../../shared/urls";
 import {createTimeEntryRoute, superviseRoute} from "../../shared/routes";
 
 @Component({

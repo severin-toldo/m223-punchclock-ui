@@ -7,7 +7,7 @@ import {
   deleteTimeEntryUrl,
   editTimeEntryUrl,
   getAllTimeEntriesUrl,
-  getMyTimeEntriesUrl
+  getMyTimeEntriesUrl, getTimeEntryByIdUrl
 } from "../shared/urls";
 
 @Injectable({
@@ -24,6 +24,10 @@ export class TimeEntryService {
 
   public getMine(): Observable<TimeEntry[]> {
     return this.http.get<TimeEntry[]>(getMyTimeEntriesUrl());
+  }
+
+  public getById(id: number): Observable<TimeEntry> {
+    return this.http.get<TimeEntry>(getTimeEntryByIdUrl(id));
   }
 
   public create(timeEntry: TimeEntry): Observable<TimeEntry> {

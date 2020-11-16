@@ -1,1 +1,49 @@
-<p>time-entry-form works!</p>
+<hspace [amount]="5"></hspace>
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+    </div>
+    <div class="col-sm">
+      <h1>{{ (isEditMode ? 'COMPONENTS.TIME_ENTRY_FORM.EDIT_TITLE' : 'COMPONENTS.TIME_ENTRY_FORM.CREATE_TITLE') | translate }}</h1>
+      <form [formGroup]="timeEntryForm"
+            (ngSubmit)="saveTimeEntry()">
+        <mat-form-field class="mr-3 d-block"
+                        color="primary"
+                        appearance="outline">
+          <mat-label>{{ 'MODEL.TIME_ENTRY.CHECK_IN' | translate }}</mat-label>
+          <input type="datetime-local"
+                 matInput
+                 placeholder="{{ 'MODEL.TIME_ENTRY.CHECK_IN' | translate }}"
+                 formControlName="checkIn">
+        </mat-form-field>
+        <mat-form-field class="mr-3 d-block"
+                        color="primary"
+                        appearance="outline">
+          <mat-label>{{ 'MODEL.TIME_ENTRY.CHECK_OUT' | translate }}</mat-label>
+          <input type="datetime-local"
+                 matInput
+                 placeholder="{{ 'MODEL.TIME_ENTRY.CHECK_OUT' | translate }}"
+                 formControlName="checkOut">
+        </mat-form-field>
+        <mat-form-field class="mr-3 d-block"
+                        color="primary"
+                        appearance="outline">
+          <mat-label>{{ 'MODEL.TIME_ENTRY.CATEGORY' | translate }}</mat-label>
+          <mat-select formControlName="category">
+            <mat-option>-</mat-option>
+            <mat-option *ngFor="let category of (categories$ | async)" [value]="category.id">
+              {{ category.name }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <button [disabled]="!timeEntryForm.valid"
+                class="mr-3 d-block float-right"
+                type="submit"
+                mat-flat-button
+                color="primary">{{ (isEditMode ? 'GENERAL.SAVE' : 'GENERAL.ADD') | translate }}</button>
+      </form>
+    </div>
+    <div class="col-sm">
+    </div>
+  </div>
+</div>
