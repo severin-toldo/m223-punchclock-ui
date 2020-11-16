@@ -36,6 +36,9 @@ import { CategoriesComponent } from './intercom/supervise/categories/categories.
 import { CreateCategoryComponent } from './intercom/supervise/categories/create-category/create-category.component';
 import { EditCategoryComponent } from './intercom/supervise/categories/edit-category/edit-category.component';
 import { CategoryFormComponent } from './components/category-form/category-form.component';
+import { UsersComponent } from './intercom/supervise/users/users.component';
+import { EditUserComponent } from './intercom/supervise/users/edit-user/edit-user.component';
+import { InviteUserComponent } from './intercom/supervise/users/invite-user/invite-user.component';
 
 
 export function httpLoaderFactory(http: HttpClient): TranslateHttpLoader {
@@ -58,7 +61,10 @@ export function httpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     CategoriesComponent,
     CreateCategoryComponent,
     EditCategoryComponent,
-    CategoryFormComponent
+    CategoryFormComponent,
+    UsersComponent,
+    EditUserComponent,
+    InviteUserComponent
   ],
   imports: [
     HttpClientModule,

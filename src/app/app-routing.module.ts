@@ -10,6 +10,9 @@ import {EditTimeEntryComponent} from "./intercom/time-entry/edit-time-entry/edit
 import {CategoriesComponent} from "./intercom/supervise/categories/categories.component";
 import {CreateCategoryComponent} from "./intercom/supervise/categories/create-category/create-category.component";
 import {EditCategoryComponent} from "./intercom/supervise/categories/edit-category/edit-category.component";
+import {UsersComponent} from "./intercom/supervise/users/users.component";
+import {InviteUserComponent} from "./intercom/supervise/users/invite-user/invite-user.component";
+import {EditUserComponent} from "./intercom/supervise/users/edit-user/edit-user.component";
 
 // TODO use children
 const routes: Routes = [
@@ -64,6 +67,24 @@ const routes: Routes = [
     component: EditCategoryComponent,
     canActivate: [AdminGuard],
     data: {title: 'INTERCOM.SUPERVISE.CATEGORIES.EDIT_CATEGORY'},
+  },
+  {
+    path: 'supervise/users',
+    component: UsersComponent,
+    canActivate: [AdminGuard],
+    data: {title: 'Benutzer'},
+  },
+  {
+    path: 'supervise/user/invite',
+    component: InviteUserComponent,
+    canActivate: [AdminGuard],
+    data: {title: 'Benutzer einladen'},
+  },
+  {
+    path: 'supervise/user/edit/:id',
+    component: EditUserComponent,
+    canActivate: [AdminGuard],
+    data: {title: 'Benutzer bearbeiten'},
   },
 ];
 

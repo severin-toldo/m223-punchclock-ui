@@ -64,13 +64,12 @@ export class CategoriesComponent implements OnInit, AfterViewInit {
     this.categoryService.delete(id)
       .subscribe(() => {
         this.toaster.success();
+        this.categories = this.categories.filter(e => e.id !== id);
+        this.dataSource.data = this.categories;
+        this.hasEntries = this.categories && this.categories.length > 0;
       }, error => {
         this.toaster.error(error.errorMessage);
       });
-
-    this.categories = this.categories.filter(e => e.id !== id);
-    this.dataSource.data = this.categories;
-    this.hasEntries = this.categories && this.categories.length > 0;
   }
 
   public onEdit(id: number) {
