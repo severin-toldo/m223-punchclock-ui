@@ -42,7 +42,7 @@ export class LoginComponent implements OnInit {
       .subscribe(() => {
         this.router.navigate(dashboardRoute());
       }, error => {
-        this.toaster.error(error.errorMessage);
+        this.toaster.error('LOGIN.WRONG_CREDENTIALS');
       });
   }
 }
