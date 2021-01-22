@@ -28,7 +28,7 @@
     "E1006": "Eintrag nicht gefunden.",
     "E1007": "E-Mail oder Passwort ungültig.",
     "E1008": "Ungülite E-Mail.",
-    "E1009": "Check-In kann nicht vor Check-Out sein."
+    "E1009": "Check-Out kann nicht vor Check-In sein."
   },
   "NAV": {
     "PROFILE": "Profil",
@@ -43,7 +43,8 @@
     "LOGIN": "Anmelden",
     "LOGOUT": "Abmelden",
     "EMAIL": "E-Mail",
-    "PASSWORD": "Passwort"
+    "PASSWORD": "Passwort",
+    "WRONG_CREDENTIALS": "Email oder Passwort ist falsch."
   },
   "INTERCOM": {
     "DASHBOARD": {
