@@ -9,3 +9,7 @@ The Purpose of this Application is to save trimes.
 2. npm install
 
 3. ng serve
+
+
+Users: See Backend Repo
+* you may have to reload the page after login
